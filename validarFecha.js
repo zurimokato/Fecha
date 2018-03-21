@@ -22,23 +22,24 @@ function Fecha(dia, mes, anio) {
 		this.anio=1900;
 	}
 	this.validarFecha=function(){
-		if (this.anio<1900 && this.dia<0 && this.mes <0) {
+		if (this.anio<1900 || this.dia<0 || this.mes <0) {
 			alert("La Fecha es incorrecta");
 		}else{
-			for (var i = 0; i < vectMes.length; i++) {
+			for (var i = 1; i <= vectMes.length; i++) {
 				if(this.mes==i){
-				if (this.dia<=vectMes[i]) {
-						alert("la fecha esta correcta");
-					}else{
-						alert("La Fecha es incorrecta");
-					}
-				}	
-				if(this.mes==i && i == 2){
-					if (this.isBisiesto()==true) {
-						if (this.mes<=vectMes[i]+1) {
-							alert("Es biesiesto y la fecha esta correcta");
+					if(i == 2){
+						if (this.isBisiesto()==false) {
+							alert("No es biesiesto y la fecha esta incorrecta");
+							}else{
+								if (this.mes<=vectMes[i]+1) {
+									alert("Es bisiesto y la Fecha es correcta");
+								}
+							}
 						}else{
-							alert("Es bisiesto y la Fecha es incorrecta");
+							if (this.dia>=1 && this.dia<=vectMes[i]) {
+							alert("la fecha esta correcta");
+						}else{
+							alert("La fecha es incorrecta");
 						}
 					}
 				}
@@ -55,6 +56,14 @@ function Fecha(dia, mes, anio) {
 		}
 		return bisiesto;
 	}
+
+	this.formatoLatino=function(){
+		alert(this.dia+"/"+this.mes+"/"+this.anio);
+	}
+
+	this.formatoGringo=function(){
+		alert(this.mes+"/"+this.dia+"/"+this.anio);
+	}
 }
 
 
@@ -67,4 +76,24 @@ function vFecha(){
 	var fecha=new Fecha(dia,mes,anio);
 
 	fecha.validarFecha();
+}
+
+function vFormatoLatino(){
+	var dia=parseInt(document.getElementById("Dia").value);
+	var mes=parseInt(document.getElementById("Mes").value);
+	var anio = parseInt(document.getElementById("Anio").value);
+
+	var fecha=new Fecha(dia,mes,anio);
+
+	fecha.formatoLatino();
+}
+
+function vFormatoGringo(){
+	var dia=parseInt(document.getElementById("Dia").value);
+	var mes=parseInt(document.getElementById("Mes").value);
+	var anio = parseInt(document.getElementById("Anio").value);
+
+	var fecha=new Fecha(dia,mes,anio);
+
+	fecha.formatoGringo();
 }
