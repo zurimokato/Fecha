@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="calendar-icon_34471.png">
-  </HEAD>
     <title>Fecha</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-<STYLE type="text/css">
-   input {width:50px; text-align: center}
-   .fecha,.botom{width:100%; text-align: center }
-   body{ background:#CACFD2}
- </STYLE>
- <br>
- <br>
- <div class="fecha">
-Dia <input id="Dia" type="number" name="Dia">
-Mes <input id="Mes" type="number" name="Mes">
-Año <input id="Anio" type="number" name="Año">
-</div>
-<br>
-<div class="botom">
-<button id="btn" onclick="vFecha()">Validar</button>
-<button id="btn" onclick="vFormatoLatino()">Formato latino</button>
-<button id="btn" onclick="vFormatoGringo()">Formato gringo</button>
-</div>
-
-<script src="validarFecha.js" type="text/javascript" charset="utf-8"></script>
+	<br>
+	<br>
+	<div class="fecha">
+		Dia <input id="Dia" type="number" name="Dia">
+		Mes <input id="Mes" type="number" name="Mes">
+		Año <input id="Anio" type="number" name="Año">
+	</div>
+	<br>
+	<div class="botom">
+		<button id="btn" onclick="vFecha()">Validar</button>
+		<button id="btn1" onclick="vFormatoLatino()">Formato latino</button>
+		<button id="btn2" onclick="vFormatoGringo()">Formato gringo</button>
+	</div>
+	<script src="validarFecha.js"></script>
 </body>
 </html>
