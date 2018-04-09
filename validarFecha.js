@@ -2,7 +2,7 @@ function Fecha(dia, mes, anio) {
 	this.dia=dia;
 	this.mes=mes;
 	this.anio=anio;
-	var vectMes=[31,28,31,30,31,30,31,31,30,31,30,31];
+	let vectMes=[31,28,31,30,31,30,31,31,30,31,30,31];
 
 
 	this.obtenerDia=function(){
@@ -22,12 +22,13 @@ function Fecha(dia, mes, anio) {
 		this.anio=1900;
 	}
 	this.validarFecha=function(){
-		if (this.anio<1900 || this.dia<0 || this.mes <0) {
+		let newMes=this.mes-1;
+		if (this.anio<1900 || this.dia<0 || this.mes <0 || this.mes >=13) {
 			alert("La Fecha es incorrecta");
 		}else{
-			for (var i = 1; i <= vectMes.length; i++) {
-				if(this.mes==i){
-					if(i == 2){
+			for (let i = 1; i <= vectMes.length; i++) {
+				if(newMes==i){
+					if(i == 1){
 						if (this.isBisiesto()==false) {
 							alert("No es biesiesto y la fecha esta incorrecta");
 							}else{
@@ -48,7 +49,7 @@ function Fecha(dia, mes, anio) {
 	}
 
 	this.isBisiesto=function(){
-		var bisiesto=false;
+		let bisiesto=false;
 		if(this.anio%100!=0 && this.anio%4==0 || this.anio%400==0){
 			bisiesto=true;
 		}else{
@@ -69,31 +70,31 @@ function Fecha(dia, mes, anio) {
 
 
 function vFecha(){
-	var dia=parseInt(document.getElementById("Dia").value);
-	var mes=parseInt(document.getElementById("Mes").value);
-	var anio = parseInt(document.getElementById("Anio").value);
+	let dia=parseInt(document.getElementById("Dia").value);
+	let mes=parseInt(document.getElementById("Mes").value);
+	let anio = parseInt(document.getElementById("Anio").value);
 
-	var fecha=new Fecha(dia,mes,anio);
+	let fecha=new Fecha(dia,mes,anio);
 
 	fecha.validarFecha();
 }
 
 function vFormatoLatino(){
-	var dia=parseInt(document.getElementById("Dia").value);
-	var mes=parseInt(document.getElementById("Mes").value);
-	var anio = parseInt(document.getElementById("Anio").value);
+	let dia=parseInt(document.getElementById("Dia").value);
+	let mes=parseInt(document.getElementById("Mes").value);
+	let anio = parseInt(document.getElementById("Anio").value);
 
-	var fecha=new Fecha(dia,mes,anio);
+	let fecha=new Fecha(dia,mes,anio);
 
 	fecha.formatoLatino();
 }
 
 function vFormatoGringo(){
-	var dia=parseInt(document.getElementById("Dia").value);
-	var mes=parseInt(document.getElementById("Mes").value);
-	var anio = parseInt(document.getElementById("Anio").value);
+	let dia=parseInt(document.getElementById("Dia").value);
+	let mes=parseInt(document.getElementById("Mes").value);
+	let anio = parseInt(document.getElementById("Anio").value);
 
-	var fecha=new Fecha(dia,mes,anio);
+	let fecha=new Fecha(dia,mes,anio);
 
 	fecha.formatoGringo();
 }
