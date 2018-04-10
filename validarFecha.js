@@ -30,7 +30,11 @@ function Fecha(dia, mes, anio) {
 				if(newMes==i){
 					if(i == 1){
 						if (this.isBisiesto()==false) {
-							alert("No es biesiesto y la fecha esta incorrecta");
+							if (this.dia<=vectMes[i]){
+								alert("No es biesiesto y la fecha esta correcta");
+							}else{
+								alert("No es biesiesto y la fecha esta incorrecta");
+							}
 							}else{
 								if (this.mes<=vectMes[i]+1) {
 									alert("Es bisiesto y la Fecha es correcta");
